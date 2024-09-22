@@ -10,32 +10,34 @@ Process Starter is a Windows Forms application that allows users to configure an
 - Configurable layout options, including spacing and row spacing.
 
 ## Configuration File
-The configuration file `process_starter.cfg` defines the buttons and their properties. Here’s how to structure it:
+The configuration file `process_starter.cfg` defines the buttons and their properties. Hereâ€™s how to structure it:
 
 ### Config Instructions
-ProcessStart config file
-Text such as this will be ignored.
-To define a window title use Form_Title = name
+
+You may write anywhere in the config file besides a command line, which then you need to use #To add a comment
+
+Form_Title = name # Defins a window title use 
 To define a button use -Begin Button-
 
-Buttons have the following properties:
-text - The text displayed on the button
-text_size - the size of text, (8 is the default)
-bold - bolds the text
-italic - italicize the text
 
-button_size - this changes the size for the current button and all buttons afterwards
-			must be defined as width, height
+#### Buttons have the following properties:
+text = My Button # The text displayed on the button
+text_size = 8 # The size of text, (8 is the default)
+bold = true # Bolds the text
+italic = true # Italicize the text
 
-process - this can be any file your computer can run
-command - if process is empty this will run as a console command 
-	otherwise it will act as commandline arguments for process
+button_size = 130, 25 # Changes the size for the current button and all buttons afterwards must be defined as width, height (130, 25 is the default)
 
-same_line - used to make button appear on the line of the previous button
+process = notepad.exe # This can be any file your computer can run
+command = cd\ & tree # If process is not defined this will run as a console command otherwise it will act as commandline arguments for process
+note: You may use \"\{CurrentDirectory}\\path\" as a local path definer
 
-spacing - creates an x amount of blank spaces the width of default button size
-row_spacing - creates an x amount of blank spaces the height of default button size
-		note: negative row spacing is allowed, but can have messy results
+same_line = true # Used to make button appear on the line of the previous button
+
+spacing = 1 # Creates an x amount of blank spaces the width of default button size
+
+row_spacing = 1 # Creates an x amount of blank spaces the height of default button size
+note: negative row spacing is allowed, but can have messy results
 
 ### Example Config
 Set a window title
@@ -46,11 +48,13 @@ These will apear vertical which is the default
 ```
 -Begin Button- # comments on rows with commands need a hashtag
 text = Button 1
+process = notepad.exe # Opens notepad
 
 -Begin Button-
-text = Button 2 
+text = Button 2
+command = cd\ & tree # Goes to the root of your drive and lists every file (harmless)
 ```
-
+These will appear side by side
 ```
 -Begin Button-
 text = Button 1
@@ -60,7 +64,8 @@ row_spacing = 1 # creates a blank line
 text = Button 2 
 same_line = true # will appear next to Button 1
 ```
-
+The following will create a large button thrice the size of the set button width and twice the size of button height
+As well as showing the spacing option 
 ```
 -Begin Button-
 row_spacing = 1 # creates a blank line
@@ -77,7 +82,7 @@ text = Button 3
 spacing = 1 # creates a blank space
 same_line = true
 ```
-
+Following shows blank spot in button layout
 ```
 -Begin Button-
 text = Button 1
@@ -98,7 +103,7 @@ text = Button 3
 text = Button 4
 same_line = true
 ```
-
+Following is similar to the last, but it shows how to fill in the blank spot as well as resizing the buttons
 ```
 -Begin Button-
 text = Button 1
@@ -115,7 +120,7 @@ width = 2
 height = 2
 same_line = true
 
-Adding a button here and adding same_line tag would put it above button 4
+Note: Adding a button here and adding same_line tag would put it above button 4
 
 -Begin Button-
 text = Button 3
@@ -128,14 +133,16 @@ spacing = 2 # To fix this appearing behind Button 2 we can use spacing
 ```
 
 ## Getting Started
-1. Clone this repository to your local machine.
-2. Create a configuration file named `process_starter.cfg` in the same directory as the executable.
-3. Run the application, and the buttons defined in the configuration will appear.
+1. Click on Release on the right side.
+2. Click on ProcessStarter.exe under the most recent recent.
+3. Place the exe anywhere you want to store it.
+4. Open the exe, it will generate a config file with the examples from above.
+5. Modify the config to your own needs.
+
 
 ## Building the Project
-To build the project, use the following steps:
-1. Open the solution in Visual Studio.
-2. Restore NuGet packages if necessary.
+1. Clone this repository to your local machine.
+2. Open the solution in Visual Studio or Rider.
 3. Build the solution.
 
 ## License
