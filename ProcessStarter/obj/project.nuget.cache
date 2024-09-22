@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "lNlonXZks98Sg6QTpnxb5pivasRinBjdmM6YBAD/4cbMuK1aHvdzBYMFsM+hXkus70sSlSE8Hmc8jjId7bN8fA==",
+  "dgSpecHash": "/bXXtQAJhmk=",
   "success": true,
   "projectFilePath": "H:\\GitHub\\ProcessStarter\\ProcessStarter\\ProcessStarter.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Suekru\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.8\\microsoft.net.illink.tasks.8.0.8.nupkg.sha512"
+  ],
   "logs": []
 }

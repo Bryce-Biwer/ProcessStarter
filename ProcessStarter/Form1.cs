@@ -8,7 +8,7 @@ public partial class Form1 : Form
     private const string DefaultConfig = "ProcessStarter.process_starter.cfg";
     
     private readonly string config = $"{AppDomain.CurrentDomain.BaseDirectory}\\process_starter.cfg";
-    private readonly Size defaultButtonSize = new(130, 25);
+    private Size defaultButtonSize = new(130, 25);
     
     private new const int Padding = 10;
     private int currentYLevel = Padding;
@@ -117,6 +117,12 @@ public partial class Form1 : Form
                 {
                     Text = value;
                     continue;
+                }
+
+                if (key == "button_size")
+                {
+                    var size = value.Split(',');
+                    defaultButtonSize = new Size(int.Parse(size[0].Trim()), int.Parse(size[1].Trim()));
                 }
 
 
